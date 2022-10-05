@@ -61,12 +61,12 @@ const Content = () => {
                             return (
                                 <>
                                     <li key={i} className=' hover:bg-blue-100 py-3 px-2 hover:cursor-pointer' onClick={() => {
-
-                                        dispatch(setDisplayProject(project.id));
+                                        window.location.pathname = `/${project.slug}`
+                                        dispatch(setDisplayProject(project.id));    
                                     }}>
-                                        <Link  to={`/${data.Projects[project.id - 1].slug}`} reloadDocument >
-                                            {project.name}
-                                        </Link>
+                                       
+                                        {project.name}
+                                       
 
 
                                     </li>

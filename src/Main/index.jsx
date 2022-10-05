@@ -16,20 +16,23 @@ export const TasksList = () => {
     const displayProject = useSelector((state) => state.drawer.projectId)
     const [myTask, setTask] = useState([])
     const [showLoading, setShowloading] = useState(true)
+    const prId = window.location.pathname.slice(1,window.location.pathname.length).split('-')[1]
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const temp = []
-
-
+    var temp = []
+    console.log(window.location.pathname)
+    // console.log(data)
     useEffect(() => {
 
         // eslint-disable-next-line array-callback-return
-        data.Tasks.map((task) => {
-            // eslint-disable-next-line eqeqeq
-            if (task.projectId == displayProject) {
-                temp.push(task)
-            }
+        temp = data.Tasks.filter(task => task.projectId == prId)
+        // data.Tasks.map((task) => {
+        //     // eslint-disable-next-line eqeqeq
+        //     if (task.projectId == displayProject) {
+        //         temp.push(task)
+        //     }
 
-        })
+        // })
+        console.log(temp)
         setTask(temp)
         setTimeout(function () {
             setShowloading(false)
@@ -37,7 +40,9 @@ export const TasksList = () => {
             , 1000);
     }, [])
 
+    // useEffect(()=>{
 
+    // }, [prId])
     const filter = useSelector((state) => state.drawer.filter)
     const dispatch = useDispatch()
 

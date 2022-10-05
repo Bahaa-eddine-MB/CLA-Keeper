@@ -8,6 +8,7 @@ import data from './db.json'
 import { Route, Routes } from 'react-router-dom'
 import { AddTask } from './Main/AddTask';
 import { AddProject } from './Drawer/AddProject';
+import { useState } from 'react';
 // import ErrorPage from './error-page';
 
 
@@ -18,7 +19,8 @@ export const App = () => {
     const displayProject = useSelector((state) => state.drawer.projectId)
     const showDrawer = useSelector((state) => state.drawer.drawer)
     const darkMode = useSelector((state) => state.drawer.dark)
-
+    const [prIds, setPrIds] = useState(data.Projects.map(project => project.id))
+    console.log(displayProject)
     return (
         <>
             
@@ -29,9 +31,9 @@ export const App = () => {
                     <div className='dark:bg-[#1f2937] dark:text-white dark:min-h-[92.5vh]'>
                           
                         <Routes>
-                            <Route path={`/${data.Projects[displayProject - 1].slug}`} element={<TasksList />} />
-                            <Route path={`/${data.Projects[displayProject - 1].slug}/add-task`} element={<AddTask />} />
-                            <Route path={`/add-project`} element={<AddProject />} />
+                                <Route path={`/${data.Projects[displayProject-1].slug}`} element={<TasksList />} />
+                                <Route path={`/${data.Projects[displayProject-1].slug}/add-task`} element={<AddTask />} />
+                                <Route path={`/add-project`} element={<AddProject />} />
 
                         </Routes>
                             {/* <Route path="/" element={<ErrorPage />} /> */}
