@@ -2,39 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App'
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { AddProject } from './Drawer/AddProject';
-import ErrorPage from "./error-page";
+import { Provider } from 'react-redux'
+import { store } from './redux/sotre'
+import { Persistor } from './redux/sotre';
+import { PersistGate } from 'redux-persist/integration/react'
+import { BrowserRouter } from 'react-router-dom'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    // children: [
-    //   {
-    //     path: "/addproject",
-    //     element: <AddProject />,
-    //   },
-    // ],
-  },
-  {
-    path: "/addproject",
-    element: <AddProject />,
 
-  }
-]);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render( 
-  <React.StrictMode >
-  <RouterProvider router={router} />
-  </React.StrictMode >
+root.render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={Persistor}>
+      <BrowserRouter>
+       <App/>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
 );
 
 reportWebVitals();
