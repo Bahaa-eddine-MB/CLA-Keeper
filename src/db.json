@@ -17,18 +17,6 @@
       "id": "3",
       "slug": "project-3",
       "trackedTime": 0
-    },
-    {
-      "name": "yzq",
-      "id": 4,
-      "slug": "yzq-4",
-      "trackedTime": 0
-    },
-    {
-      "name": "yess  sdqks dq",
-      "id": 5,
-      "slug": "yess-sdqks-dq-5",
-      "trackedTime": 0
     }
   ],
   "Tasks": [
@@ -36,12 +24,12 @@
       "id": "1",
       "name": "task 1",
       "description": "always be productive",
-      "duration": 20,
+      "duration": 2,
       "projectId": "1",
       "isRunning": false,
-      "remainingTime": 10,
-      "remainingSeconds": 600,
-      "completed": true,
+      "remainingTime": 1.4,
+      "remainingSeconds": 84,
+      "completed": false,
       "isDeleted": false
     },
     {
@@ -51,8 +39,8 @@
       "duration": 20,
       "projectId": "1",
       "isRunning": true,
-      "remainingTime": 10,
-      "remainingSeconds": 600,
+      "remainingTime": 19.9,
+      "remainingSeconds": 1194,
       "completed": false,
       "isDeleted": false
     },
@@ -60,11 +48,11 @@
       "id": "3",
       "name": "task 3",
       "description": "always be productive",
-      "duration": 20,
+      "duration": 12,
       "projectId": "1",
       "isRunning": false,
-      "remainingTime": 10,
-      "remainingSeconds": 600,
+      "remainingTime": 0,
+      "remainingSeconds": 0,
       "completed": true,
       "isDeleted": false
     },
@@ -72,12 +60,12 @@
       "id": "4",
       "name": "task 1 2",
       "description": "always be productive",
-      "duration": 20,
+      "duration": 15,
       "projectId": "2",
       "isRunning": false,
-      "remainingTime": 10,
-      "remainingSeconds": 600,
-      "completed": true,
+      "remainingTime": 9.333333333333334,
+      "remainingSeconds": 560,
+      "completed": false,
       "isDeleted": false
     },
     {
@@ -87,8 +75,8 @@
       "duration": 20,
       "projectId": "2",
       "isRunning": true,
-      "remainingTime": 10,
-      "remainingSeconds": 600,
+      "remainingTime": 9.25,
+      "remainingSeconds": 555,
       "completed": false,
       "isDeleted": false
     },
@@ -106,11 +94,11 @@
     },
     {
       "id": 7,
-      "name": "sss",
-      "description": "za",
+      "name": "test",
+      "description": "yes",
       "duration": "10",
       "projectId": 3,
-      "isRunning": true,
+      "isRunning": false,
       "remainingTime": "10",
       "remainingSeconds": 600,
       "completed": false,
@@ -125,6 +113,18 @@
       "isRunning": false,
       "remainingTime": "50",
       "remainingSeconds": 3000,
+      "completed": true,
+      "isDeleted": false
+    },
+    {
+      "id": 9,
+      "name": "tesing the new update",
+      "description": "is it working tho ?",
+      "duration": "1",
+      "projectId": "3",
+      "isRunning": false,
+      "remainingTime": 0,
+      "remainingSeconds": 0,
       "completed": true,
       "isDeleted": false
     }

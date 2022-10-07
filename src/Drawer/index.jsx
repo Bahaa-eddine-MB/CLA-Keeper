@@ -66,9 +66,6 @@ const Content = () => {
                                     }}>
                                        
                                         {project.name}
-                                       
-
-
                                     </li>
                                 </>
                             )

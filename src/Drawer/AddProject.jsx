@@ -24,7 +24,6 @@ export const AddProject = () => {
                         <label>
                             <div className='mb-5 text-center'>
                                 Project's Name :
-
                             </div>
                             <input type="text" name="name" className="border-2 rounded-lg block w-full bg-gray-50 p-3 mb-2 text-sm font-medium text-gray-900 border-gray-300 dark:text-black"
                                 onChange={(e) => {
@@ -60,7 +59,7 @@ export const AddProject = () => {
                                 }
                                 }
                             >
-                                Create
+                               Create
                             </button>
                         </Link>
 

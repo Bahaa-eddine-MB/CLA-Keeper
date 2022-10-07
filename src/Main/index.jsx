@@ -9,21 +9,19 @@ import {Link } from 'react-router-dom'
 
 
 
-
-
-
 export const TasksList = () => {
     const displayProject = useSelector((state) => state.drawer.projectId)
     const [myTask, setTask] = useState([])
     const [showLoading, setShowloading] = useState(true)
-    const prId = window.location.pathname.slice(1,window.location.pathname.length).split('-')[1]
+    const temp1 = window.location.pathname.slice(1,window.location.pathname.length).split('-') 
+    const prId = temp1[temp1.length -1]
     // eslint-disable-next-line react-hooks/exhaustive-deps
     var temp = []
-    console.log(window.location.pathname)
+    console.log(prId)
     // console.log(data)
     useEffect(() => {
 
-        // eslint-disable-next-line array-callback-return
+        // eslint-disable-next-line array-callback-return, react-hooks/exhaustive-deps, eqeqeq
         temp = data.Tasks.filter(task => task.projectId == prId)
         // data.Tasks.map((task) => {
         //     // eslint-disable-next-line eqeqeq
@@ -106,7 +104,7 @@ export const TasksList = () => {
                             else return false
                         }).map(((task, i) => {
                             return (
-                                <li key={i}><Task name={task.name} description={task.description} index={task.id} completed={task.completed} isDeleted={task.isDeleted} /></li>
+                                <li key={i}><Task name={task.name} description={task.description} index={task.id} completed={task.completed} isDeleted={task.isDeleted} remainingTime={task.remainingTime} duration={task.duration} isRunning={task.isRunning} /></li>
                             )
 
                         }))

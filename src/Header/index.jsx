@@ -20,12 +20,12 @@ export const Header = () => {
                 <h1 className='uppercase ml-5 font-bold  '>Keeper</h1>
             </div>
             <div className=' flex gap-5 px-5 items-center'>
-                <AddIcon className=' border-2 rounded border-white  hover:cursor-pointer' />
+                <AddIcon className=' border-2 rounded border-white  hover:cursor-pointer ' />
                 <PersonOutlineIcon className='hover:cursor-pointer' />
-                <span className={`hover:cursor-pointer ${darkMode && "hidden"}`} onClick={() => { dispatch(setDarkMode()) }}>
+                <span className={`hover:cursor-pointer hover:animate-pulse ${darkMode && "hidden"}`} onClick={() => { dispatch(setDarkMode()) }}>
                     <WbSunnyIcon />
                 </span>
-                <span className={`hover:cursor-pointer ${!darkMode && "hidden"}`} onClick={() => { dispatch(setDarkMode()) }}>
+                <span className={`hover:cursor-pointer hover:animate-pulse ${!darkMode && "hidden"}`} onClick={() => { dispatch(setDarkMode()) }}>
                     <DarkModeIcon />
 
                 </span>
