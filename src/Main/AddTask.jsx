@@ -1,29 +1,39 @@
 import '../App.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import axios from 'axios'
 import data from '../db.json'
-import { duration } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { addNewTask } from '../redux/TaskSlice'
+const generateUniqueId = require('generate-unique-id');
 
 
-const api = axios.create({
-    baseURL: `http://localhost:3500/Tasks`
-})
-const api2 = axios.create({
-    baseURL: `http://localhost:3500/Projects`
-})
+
 
 
 export const AddTask = () => {
 
-
+    const dispatch = useDispatch()
     const darkMode = useSelector((state) => state.drawer.dark)
     const [taskName, setTaskName] = useState("")
     const [taskDes, setTaskDes] = useState("")
     const [taskDuration, setTaskDuration] = useState(0)
     const displayProject = useSelector((state) => state.drawer.projectId)
+    const handleAddTask = async () => {
+        const task = {
+            id: generateUniqueId(),
+            name: taskName,
+            description: taskDes,
+            duration: taskDuration,
+            projectId: displayProject,
+            isRunning: true,
+            remainingTime: taskDuration,
+            remainingSeconds: taskDuration * 60,
+            completed: false,
+            isDeleted: false
+        }
+        await dispatch(addNewTask(task));
 
+    }
 
     return (
         <>
@@ -49,7 +59,6 @@ export const AddTask = () => {
                         <label>
                             <div className='mb-4 text-sart'>
                                 Tasks's duration in mins:
-
                             </div>
                             <input type="number" name="duration" className="border-2 rounded-lg block w-full bg-gray-50 p-3 mb-8 text-sm font-medium text-gray-900 border-gray-300 dark:text-black"
                                 onChange={(e) => {
@@ -71,27 +80,11 @@ export const AddTask = () => {
                                 }
                             />
                         </label>
-                        <Link  to={`/${data.Projects[displayProject - 1].slug}`}>
+                        <Link to={`/${data.Projects[displayProject - 1].slug}`}>
                             <button className='font-bold dark:bg-gray-50 border dark:border-gray-300 dark:text-gray-900 text-sm rounded-lg dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500'
                                 onClick={async () => {
                                     if (taskName != "" && taskDes != "" && taskDuration != 0) {
-                                        await api.post('/', {
-                                            id: data.Tasks.length + 1,
-                                            name: taskName,
-                                            description: taskDes,
-                                            duration: taskDuration,
-                                            projectId: displayProject,
-                                            isRunning: true,
-                                            remainingTime: taskDuration,
-                                            remainingSeconds: taskDuration * 60,
-                                            completed: false,
-                                            isDeleted: false
-                                        })
-                                        await api2.post('/', {
-                                            trackedTime: data.Projects[1].trackedTime + duration
-
-                                        })
-
+                                        await handleAddTask()
                                     }
                                 }
                                 }

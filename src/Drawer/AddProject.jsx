@@ -1,21 +1,35 @@
 import '../App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import axios from 'axios'
 import data from '../db.json'
 import { Link } from 'react-router-dom'
 import { setDisplayProject } from '../redux/mySlice'
+import { addNewProject } from '../redux/ProjectSlice'
 
 
-const api = axios.create({
-    baseURL: `http://localhost:3500/Projects`
-})
 
 export const AddProject = () => {
     const darkMode = useSelector((state) => state.drawer.dark)
     const [projectName, setProjectName] = useState("")
     const dispatch = useDispatch()
     const id = data.Projects.length + 1
+    const handleAddProject = async () => {
+        const project = {
+            name: projectName,
+            id: id,
+            slug: projectName.toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '') + "-" + id,
+            trackedTime: 0,
+        }
+        await dispatch(addNewProject(project));
+
+    }
+
+
+
     return (
         <>
             <main className={`${darkMode && 'dark'}`}>
@@ -32,36 +46,26 @@ export const AddProject = () => {
                                 }
                             />
                         </label>
-                        <Link to={`/${projectName.toLowerCase()
+                        {/* <Link to={`/${projectName.toLowerCase()
                             .trim()
                             .replace(/[^\w\s-]/g, '')
                             .replace(/[\s_-]+/g, '-')
-                            .replace(/^-+|-+$/g, '')+'-'+id}`}>
-                            <button className='dark:bg-gray-50 border dark:border-gray-300 dark:text-gray-900 text-sm rounded-lg dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500'
-                                onClick={async () => {
-                                    // eslint-disable-next-line eqeqeq
-                                    if (projectName != "") {
-                                        dispatch(setDisplayProject(data.Projects.length + 1))
-                                        await api.post('/', {
-                                            name: projectName,
-                                            id: data.Projects.length + 1,
-                                            slug: projectName.toLowerCase()
-                                                .trim()
-                                                .replace(/[^\w\s-]/g, '')
-                                                .replace(/[\s_-]+/g, '-')
-                                                .replace(/^-+|-+$/g, '') + "-" +id,
-                                            trackedTime: 0
-                                        })
-
-                                    }
-
-
+                            .replace(/^-+|-+$/g, '') + '-' + id}`}> */}
+                        <button className={'dark:bg-gray-50 border dark:border-gray-300 dark:text-gray-900 text-sm rounded-lg dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500'}
+                            onClick={async () => {
+                                if (projectName != "") {
+                                    dispatch(setDisplayProject(data.Projects.length + 1))
+                                    await handleAddProject()
                                 }
-                                }
-                            >
-                               Create
-                            </button>
-                        </Link>
+
+
+                            }
+                            }
+                        >
+                            Create
+                        </button>
+
+                        {/* </Link> */}
 
                     </form>
                 </div>

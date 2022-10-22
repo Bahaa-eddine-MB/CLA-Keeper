@@ -4,7 +4,8 @@
       "name": "project 1",
       "id": "1",
       "slug": "project-1",
-      "tracked-time": 30
+      "tracked-time": 30,
+      "trackedTime": 39
     },
     {
       "name": "project 2",
@@ -24,13 +25,12 @@
       "id": "1",
       "name": "task 1",
       "description": "always be productive",
-      "duration": 2,
+      "duration": 1,
       "projectId": "1",
-      "isRunning": false,
-      "remainingTime": 1.4,
-      "remainingSeconds": 84,
-      "completed": false,
-      "isDeleted": false
+      "isRunning": true,
+      "remainingTime": 19.866666666666667,
+      "remainingSeconds": 1192,
+      "completed": false
     },
     {
       "id": "2",
@@ -39,10 +39,9 @@
       "duration": 20,
       "projectId": "1",
       "isRunning": true,
-      "remainingTime": 19.9,
-      "remainingSeconds": 1194,
-      "completed": false,
-      "isDeleted": false
+      "remainingTime": 20,
+      "remainingSeconds": 1200,
+      "completed": false
     },
     {
       "id": "3",
@@ -53,8 +52,7 @@
       "isRunning": false,
       "remainingTime": 0,
       "remainingSeconds": 0,
-      "completed": true,
-      "isDeleted": false
+      "completed": true
     },
     {
       "id": "4",
@@ -63,10 +61,9 @@
       "duration": 15,
       "projectId": "2",
       "isRunning": false,
-      "remainingTime": 9.333333333333334,
-      "remainingSeconds": 560,
-      "completed": false,
-      "isDeleted": false
+      "remainingTime": 9.283333333333333,
+      "remainingSeconds": 557,
+      "completed": false
     },
     {
       "id": "5",
@@ -75,10 +72,9 @@
       "duration": 20,
       "projectId": "2",
       "isRunning": true,
-      "remainingTime": 9.25,
-      "remainingSeconds": 555,
-      "completed": false,
-      "isDeleted": false
+      "remainingTime": 9.15,
+      "remainingSeconds": 549,
+      "completed": false
     },
     {
       "id": "6",
@@ -89,8 +85,7 @@
       "isRunning": false,
       "remainingTime": 10,
       "remainingSeconds": 600,
-      "completed": true,
-      "isDeleted": false
+      "completed": true
     },
     {
       "id": 7,
@@ -101,32 +96,7 @@
       "isRunning": false,
       "remainingTime": "10",
       "remainingSeconds": 600,
-      "completed": false,
-      "isDeleted": false
-    },
-    {
-      "id": 8,
-      "name": "new yes",
-      "description": "come on",
-      "duration": "50",
-      "projectId": 3,
-      "isRunning": false,
-      "remainingTime": "50",
-      "remainingSeconds": 3000,
-      "completed": true,
-      "isDeleted": false
-    },
-    {
-      "id": 9,
-      "name": "tesing the new update",
-      "description": "is it working tho ?",
-      "duration": "1",
-      "projectId": "3",
-      "isRunning": false,
-      "remainingTime": 0,
-      "remainingSeconds": 0,
-      "completed": true,
-      "isDeleted": false
+      "completed": false
     }
   ]
 }

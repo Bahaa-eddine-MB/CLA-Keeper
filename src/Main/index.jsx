@@ -83,10 +83,7 @@ export const TasksList = () => {
                 </div>
                 <span className={`${!showLoading && "hidden"} ${showLoading && "p-3 py-1  justify-self-end dark:bg-slate-400  border-2 border-slate-700 dark:border-gray-600 rounded-md"}`}>
                     <p className='dark:text-white '>Loading ...</p>
-                    {/* <div className=''>
-                <div className=''>
-                </div>
-            </div> */}
+                 
                 </span>
                 <ul className={`${showLoading && 'hidden'} ${!showLoading && 'space-y-16 py-10'}`}>
 
@@ -104,7 +101,7 @@ export const TasksList = () => {
                             else return false
                         }).map(((task, i) => {
                             return (
-                                <li key={i}><Task name={task.name} description={task.description} index={task.id} completed={task.completed} isDeleted={task.isDeleted} remainingTime={task.remainingTime} duration={task.duration} isRunning={task.isRunning} /></li>
+                                <li key={i}><Task name={task.name} description={task.description} projectid={task.projectId} index={task.id} completed={task.completed}  remainingTime={task.remainingTime} duration={task.duration} isRunning={task.isRunning} /></li>
                             )
 
                         }))

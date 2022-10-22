@@ -11,7 +11,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-
+import ProjectSlice from './ProjectSlice'
+import TaskSlice from './TaskSlice'
 
 const persistConfig = {
   key: 'main-root',
@@ -19,11 +20,14 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, mySlice)
-
+const projectReducer = persistReducer(persistConfig, ProjectSlice)
+const taskReducer = persistReducer(persistConfig,TaskSlice )
 
 export const store = configureStore({
   reducer: {
-    drawer: persistedReducer
+    project: projectReducer,
+    drawer: persistedReducer,
+    task : taskReducer
   },
    middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
